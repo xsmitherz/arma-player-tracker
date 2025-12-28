@@ -1,0 +1,195 @@
+:root {
+  --bg: #0b1220;
+  --panel: #0f1a2e;
+  --panel-2: #0c1629;
+  --border: rgba(255,255,255,0.08);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.60);
+  --accent: #4ea1ff;
+  --accent-2: #73adad; /* optional Olympus-ish teal */
+  --danger: #ff5b6e;
+  --warning: #ffcc66;
+  --ok: #3ddc97;
+
+  --radius: 12px;
+  --radius-sm: 10px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.45);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(1200px 800px at 20% 10%, rgba(78,161,255,0.12), transparent 55%),
+    radial-gradient(900px 600px at 80% 20%, rgba(115,173,173,0.10), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+/* Links */
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+a:hover { color: white; }
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Inputs */
+.input, .select, .textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  outline: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: rgba(78,161,255,0.45);
+  box-shadow: 0 0 0 3px rgba(78,161,255,0.12);
+}
+
+/* Native control safety net */
+input,
+select,
+textarea {
+  color-scheme: dark;
+  color: var(--text);
+}
+
+/* Fix native select dropdowns */
+select option {
+  background-color: var(--panel);
+  color: var(--text);
+}
+
+/* Firefox dropdown fix */
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 var(--text);
+}
+
+/* Buttons */
+.btn,
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);              /* 🔴 FIX: force readable text */
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:hover,
+a.btn:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Primary button */
+.btn.primary,
+a.btn.primary {
+  background: rgba(78,161,255,0.14);
+  border-color: rgba(78,161,255,0.28);
+  color: var(--text);              /* 🔴 FIX: Add Player visible at rest */
+}
+
+.btn.primary:hover,
+a.btn.primary:hover {
+  background: rgba(78,161,255,0.18);
+}
+
+/* Danger button */
+.btn.danger,
+a.btn.danger {
+  background: rgba(255,91,110,0.12);
+  border-color: rgba(255,91,110,0.28);
+}
+
+.btn.danger:hover,
+a.btn.danger:hover {
+  background: rgba(255,91,110,0.16);
+}
+
+/* Disabled buttons */
+.btn:disabled,
+a.btn:disabled {
+  opacity: 0.55;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.12);
+  cursor: not-allowed;
+}
+
+/* Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+.pill.ok    { border-color: rgba(61,220,151,0.35); background: rgba(61,220,151,0.12); }
+.pill.warn  { border-color: rgba(255,204,102,0.35); background: rgba(255,204,102,0.12); }
+.pill.bad   { border-color: rgba(255,91,110,0.35); background: rgba(255,91,110,0.12); }
+.pill.info  { border-color: rgba(78,161,255,0.35); background: rgba(78,161,255,0.12); }
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th,
+.table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.table thead th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Utilities */
+.mono { font-family: var(--mono); }
+
+hr.soft {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+}
